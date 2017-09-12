@@ -15,20 +15,20 @@
 
 
         <div class="form-inputs">
-          <%= f.input :title, placeholder: "Title", input_html: {class: "input-lg"} %>
-          <%= f.input :address_line, placeholder: "Address", input_html: {class: "input-lg"} %>
-          <%= f.input :postal_code, placeholder: "Postcode", input_html: {class: "input-lg"} %>
-          <%= f.input :city, placeholder: "City", input_html: {class: "input-lg"} %>
-          <%= f.input :country, placeholder: "Country", input_html: {class: "input-lg"} %>
-          <%= f.input :price, placeholder: "Price", input_html: {class: "input-lg"} %>
-          <%= f.input :max_guest, placeholder: "Max. guests", input_html: {class: "input-lg"} %>
-          <%= f.input :description, placeholder: "Description", input_html: {class: "input-lg"}  %>
+          <%= f.input :title, placeholder: "Title", input_html: {class: "form-input-lg"} %>
+          <%= f.input :address_line, placeholder: "Address", input_html: {class: "form-input-lg"} %>
+          <%= f.input :postal_code, placeholder: "Postcode", input_html: {class: "form-input-lg"} %>
+          <%= f.input :city, placeholder: "City", input_html: {class: "form-input-lg"} %>
+          <%= f.input :country, placeholder: "Country", input_html: {class: "form-input-lg"} %>
+          <%= f.input :price, placeholder: "Price", input_html: {class: "form-input-lg"} %>
+          <%= f.input :max_guests, placeholder: "Max. guests", input_html: {class: "form-input-lg"} %>
+          <%= f.input :description, placeholder: "Description", input_html: {class: "form-input-lg"}  %>
           <%= f.input :pictures, label: "Upload photos" %>
-          <%= f.input :pictures_cache, as: :hidden %>
+          <%#= f.input :pictures_cache, as: :hidden %>
         </div>
 
         <div class="form-actions">
-          <%= f.button :submit, input_html: {class: "input-lg"}  %>
+          <%= f.button :submit, input_html: {class: "form-input-lg"}  %>
         </div>
       <% end %>
 
