@@ -17,6 +17,7 @@ gem 'simple_form'
 gem 'uglifier'
 
 gem 'devise'
+gem 'country_select'
 
 group :development, :test do
   gem 'pry-byebug'
