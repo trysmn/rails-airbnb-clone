@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170912101814) do
+ActiveRecord::Schema.define(version: 20170912113104) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -41,6 +41,22 @@ ActiveRecord::Schema.define(version: 20170912101814) do
     t.datetime "created_at",   null: false
     t.datetime "updated_at",   null: false
     t.index ["user_id"], name: "index_flats_on_user_id", using: :btree
+  end
+
+  create_table "perk_quantities", force: :cascade do |t|
+    t.integer  "quantity"
+    t.integer  "perk_id"
+    t.integer  "flat_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["flat_id"], name: "index_perk_quantities_on_flat_id", using: :btree
+    t.index ["perk_id"], name: "index_perk_quantities_on_perk_id", using: :btree
+  end
+
+  create_table "perks", force: :cascade do |t|
+    t.string   "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "profiles", force: :cascade do |t|
@@ -84,6 +100,8 @@ ActiveRecord::Schema.define(version: 20170912101814) do
   add_foreign_key "bookings", "flats"
   add_foreign_key "bookings", "users"
   add_foreign_key "flats", "users"
+  add_foreign_key "perk_quantities", "flats"
+  add_foreign_key "perk_quantities", "perks"
   add_foreign_key "profiles", "users"
   add_foreign_key "reviews", "bookings"
   add_foreign_key "reviews", "flats"
