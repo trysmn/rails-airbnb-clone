@@ -1,0 +1,51 @@
+.card {
+  background: white;
+  margin: 15px 0;
+  color: white;
+  text-decoration: none;
+  box-shadow: 0 8px 31px 0 rgba(0,0,0,.2);
+  opacity: 0.9;
+  &:hover,
+  &:focus {
+    transform: scale3d(1.012, 1.012, 1);
+    text-decoration: none;
+    opacity: 1;
+    &::after {
+      opacity: 1;
+    }
+  }
+}
+.card-header {
+  height: 200px;
+  background-size: cover;
+}
+.card-body {
+  padding: 30px;
+  color: white;
+}
+
+.card-description {
+  color: white;
+  text-decoration: none;
+}
+
+.card h4 {
+  padding-top: 10px;
+  font-family: 'Poiret One', cursive;
+}
+
+.flat-name {
+  padding-bottom: 15px;
+}
+
+.card .a {
+  text-decoration: none;
+  color: black;
+}
+#map {
+  flex: 0 0 450px;
+  top: 0 !important;
+  /*height: 100vh;*/
+  position: sticky !important;
+}
+
