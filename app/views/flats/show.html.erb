@@ -1,3 +1,4 @@
-<h1>Flats#show</h1>
-
-<h2>This is <%= @flat.title %></h2>
+<!-- app/views/flatsshow.html.erb -->
+<% @flat.pictures.each do |picture| %>
+  <%= cl_image_tag flat.path, width: 300, height: 200, crop: :fill %>
+<% end %>
