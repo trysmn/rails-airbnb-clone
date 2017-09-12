@@ -2,7 +2,39 @@
   <div class="row">
     <div class="col-xs-12 col-md-6 col-md-offset-3">
 
-        <form>
+      <%= simple_form_for(@flat) do |f| %>
+        <% if @flat.errors.any? %>
+          <div id="error_explanation">
+            <ul>
+            <% @flat.errors.full_messages.each do |message| %>
+              <li><%= message %></li>
+            <% end %>
+            </ul>
+          </div>
+        <% end %>
+
+
+        <div class="form-inputs">
+          <%= f.input :title, placeholder: "Title", input_html: {class: "input-lg"} %>
+          <%= f.input :address_line, placeholder: "Address", input_html: {class: "input-lg"} %>
+          <%= f.input :postal_code, placeholder: "Postcode", input_html: {class: "input-lg"} %>
+          <%= f.input :city, placeholder: "City", input_html: {class: "input-lg"} %>
+          <%= f.input :country, placeholder: "Country", input_html: {class: "input-lg"} %>
+          <%= f.input :price, placeholder: "Price", input_html: {class: "input-lg"} %>
+          <%= f.input :max_guest, placeholder: "Max. guests", input_html: {class: "input-lg"} %>
+          <%= f.input :description, placeholder: "Description", input_html: {class: "input-lg"}  %>
+          <%= f.input :pictures, label: "Upload photos" %>
+          <%= f.input :pictures_cache, as: :hidden %>
+        </div>
+
+        <div class="form-actions">
+          <%= f.button :submit, input_html: {class: "input-lg"}  %>
+        </div>
+      <% end %>
+
+
+
+<!--         <form>
           <div class="form-group">
             <input type="title" class="form-control" id="title" placeholder="Title">
           </div>
@@ -27,7 +59,7 @@
           </div>
 
           <button type="submit" class="btn btn-primary">Submit</button>
-        </form>
+        </form> -->
 
      </div>
   </div>
