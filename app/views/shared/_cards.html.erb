@@ -1,17 +1,32 @@
-<div class="container">
-  <div class="row">
-    <% @flats.each do |flat| %>
+<div class="main-container">
+  <div class="card-container">
+    <div class="row">
+      <% @flats.each do |flat| %>
 
-    <div class="col-xs-12 col-sm-6 col-md-4, col-lg-3">
-      <div class="card text-center">
-          <%= link_to flat_path(flat), class: "a" do %>
-    <% photo = flat.photo? ? cl_image_path(flat.photo, height: 300, width: 400, crop: :fill) : 'http://healthyrise.com/wp-content/uploads/2016/07/Cocktail-7.jpg'%>
+      <div class="col-xs-12 col-sm-6 col-md-4, col-lg-3">
+        <div class="card text-center">
+            <%= link_to flat_path(flat), class: "a" do %>
+      <% photo = flat.photo? ? cl_image_path(flat.photo, height: 300, width: 400, crop: :fill) : 'http://healthyrise.com/wp-content/uploads/2016/07/Cocktail-7.jpg'%>
 
-        <div class="card-header" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('<%= photo %>')"></div>
-        <div class="card-category"><h4 class="flat-name"><%= flat.name %></h4></div>
-      </div>
-    <% end %>
-    </div>
+          <div class="card-header" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('<%= photo %>')"></div>
+          <div class="card-category"><h4 class="flat-name"><%= flat.name %></h4></div>
+        </div>
       <% end %>
+      </div>
+        <% end %>
+    </div>
   </div>
+    <div id="map"></div>
 </div>
+
+<!-- Gmaps js: building the map -->
+  <script>
+    function initMap() {
+      // Create a map object and specify the DOM element for display.
+      var map = new google.maps.Map(document.getElementById('map'), {
+        center: {lat: 52.5206, lng: 13.4098},
+        scrollwheel: false,
+        zoom: 8
+      });
+    }
+  </script>
