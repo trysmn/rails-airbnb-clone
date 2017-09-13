@@ -1,9 +1,9 @@
 .card {
   background: white;
-  margin: 15px 0;
+  margin: 15px 10px;
   color: white;
   text-decoration: none;
-  box-shadow: 0 8px 31px 0 rgba(0,0,0,.2);
+  // box-shadow: 0 8px 31px 0 rgba(0,0,0,.2);
   opacity: 0.9;
   &:hover,
   &:focus {
@@ -28,21 +28,19 @@
   color: white;
   text-decoration: none;
 }
-.card h4 {
+.card p {
   padding-top: 10px;
-  font-family: 'Poiret One', cursive;
+  text-align: left;
 }
-.flat-name {
+.flat-details {
   padding-bottom: 15px;
+  color: #484848;
+  font-size: 15px;
 }
 .card .a {
   text-decoration: none;
   color: black;
 }
-#map {
-  flex: 0 0 450px;
-  top: 0 !important;
-  /*height: 100vh;*/
-  position: sticky !important;
+.card-container {
+  background: white;
 }
-
