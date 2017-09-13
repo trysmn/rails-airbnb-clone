@@ -1,11 +1,15 @@
 class BookingsController < ApplicationController
-  def index
-  end
+  before_action :set_flat, only: [:show, :new, :create, :edit, :update, :delete]
 
   def new
+    @booking = Booking.new
   end
 
   def create
+    @booking = Booking.new
+    binding.pry
+    @booking.flat = @flat
+    @booking.user = @current_user
   end
 
   def show
@@ -17,6 +21,12 @@ class BookingsController < ApplicationController
   def update
   end
 
-  def delete
+  def destroy
+  end
+
+  private
+
+  def set_flat
+    @flat = Flat.find(params[:id])
   end
 end
