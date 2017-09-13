@@ -1,6 +1,10 @@
 class BookingsController < ApplicationController
-  before_action :set_flat, only: [:show, :new, :create, :edit, :update, :delete]
+  before_action :set_flat, only: [:index, :show, :new, :create, :edit, :update, :delete]
   before_action :set_booking, only: [:show, :edit, :update, :destroy]
+
+  def index
+    @bookings = Booking.all
+  end
 
   def new
     @booking = Booking.new
@@ -24,9 +28,16 @@ class BookingsController < ApplicationController
   end
 
   def update
+    if @booking.update(booking_params)
+      redirect_to flat_booking_path(@flat, @booking)
+    else
+      render :edit
+    end
   end
 
   def destroy
+    @booking.destroy!
+    redirect_to flat_bookings_path
   end
 
   private
