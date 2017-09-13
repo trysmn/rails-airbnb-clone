@@ -1,2 +1,16 @@
-<h1>Bookings#index</h1>
-<p>Find me in app/views/bookings/index.html.erb</p>
+<h4>Booking details for <%= @flat.title %>: </h4>
+
+<hr>
+
+<% @bookings.each do |booking| %>
+
+  <h5>Booking no: <%= booking.id %></h5>
+
+  <h5>Moving in date: <%= booking.start_date %></h5>
+
+  <h5>Moving out date: <%= booking.end_date %></h5>
+
+  <h5>Total charges: £<%= booking.total_price %></h5>
+
+  <hr>
+<% end %>
