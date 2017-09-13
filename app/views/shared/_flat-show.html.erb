@@ -1,6 +1,6 @@
 
 
-<div class="flat-show-banner" style="background: linear-gradient(-225deg, rgba(0,101,168,0.6) 0%, rgba(0,36,61,0.6) 50%), url('http://d28hgpri8am2if.cloudfront.net/book_images/onix/interior_spreads/9781782494119/the-scandinavian-home-9781782494119.in03.jpg');">
+<div class="flat-show-banner" style="background: linear-gradient(-225deg, rgba(0,101,168,0.6) 0%, rgba(0,36,61,0.6) 50%), url(<%= cl_image_path @flat.pictures[0].path %>);">
 </div>
 
     <!-- Apply second technique -->
@@ -15,11 +15,11 @@
                 <%= @flat.description %>
               </p>
               <ul>
-                <li> <%= @flat.max_guests %> </li>
-                <li> <%= @flat.price %> </li>
-                <li> <%= @flat.city  %> </li>
-                <li> <%= @flat.postal_code %> </li>
-                <li> <%= @flat.country %> </li>
+                <li><strong>Max. guests: </strong> <%= @flat.max_guests %> </li>
+                <li><strong>Price: </strong> <%= @flat.price %> </li>
+                <li><strong>City: </strong> <%= @flat.city  %> </li>
+                <li><strong>Postcode: </strong> <%= @flat.postal_code %> </li>
+                <li><strong>Country: </strong> <%= @flat.country %> </li>
               </ul>
           </div>
           </div>
@@ -44,3 +44,8 @@
         </div>
       </div>
     </div>
+
+    <% @flat.pictures.each do |picture| %>
+  <%= cl_image_tag picture.path, width: 300, height: 200, crop: :fill %>
+<% end %>
+

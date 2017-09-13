@@ -19,12 +19,27 @@ h2 {
 }
 .wrapper-white .description-card {
   background: #FFFFFF;
-  padding: 30px;
-  margin: 30px;
-  shape-margin: 10px;
+  padding-top: 10px;
+  // margin: 30px;
+  // shape-margin: 10px;
   width: 500px
 }
-
 .wrapper-white .book-card {
-  width: 300px
+  padding-top: 33px;
+  width: 500px
+}
+.input-lg {
+  width: 500px
+}
+.btn-custom {
+  padding: 13px 0;
+}
+.flat-show-banner {
+  color: white;
+  text-align: center;
+  height: 500px;
+  background-size: cover !important;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
