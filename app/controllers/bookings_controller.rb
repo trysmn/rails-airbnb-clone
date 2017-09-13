@@ -17,7 +17,7 @@ class BookingsController < ApplicationController
     if @booking.save
       redirect_to flat_booking_path(@flat, @booking)
     else
-      render :new
+      render "flats/show"
     end
   end
 
