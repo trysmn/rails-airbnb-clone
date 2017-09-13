@@ -1,2 +1,13 @@
 <h1>Bookings#new</h1>
 <p>Find me in app/views/bookings/new.html.erb</p>
+
+<h1>Hi there friend!</h1>
+
+<%= simple_form_for [@flat, @booking] do |f| %>
+  <%= f.error_notification %>
+
+  <%= f.input :start_date, as: :date %>
+  <%= f.input :end_date, as: :date %>
+  <%= f.input :total_price, as: :integer %>
+  <%= f.submit %>
+<% end %>
