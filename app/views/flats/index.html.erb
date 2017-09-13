@@ -19,8 +19,8 @@
   </div>
 </div>
 
-<div class="main-container">
-  <div class="card-container">
+<!-- <div class="main-container">
+ -->  <div class="card-container">
     <div class="row">
       <% @flats.each do |flat| %>
 
@@ -30,11 +30,12 @@
       <% photo = flat.pictures? ? (cl_image_path flat.pictures[0].path, width: 400, height: 400, crop: :fill) : image_path("flat_pic_placeholder.jpg", height: 300, width: 400, crop: :fill) %>
 
           <div class="card-header" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url(<%= photo %>)"></div>
-          <div class="card-category"><h4 class="flat-name"><%= flat.title %></h4></div>
+          <div class="card-category"><p class="flat-details"><strong>€<%= flat.price %></strong> | <%= flat.title %></p></div>
         </div>
       <% end %>
       </div>
       <% end %>
     </div>
   </div>
-</div>
+<!-- </div>
+ -->
