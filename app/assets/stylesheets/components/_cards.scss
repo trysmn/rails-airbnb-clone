@@ -1,6 +1,6 @@
 .card {
   background: white;
-  margin: 15px 10px;
+  margin: 15px -5px;
   color: white;
   text-decoration: none;
   // box-shadow: 0 8px 31px 0 rgba(0,0,0,.2);
@@ -41,6 +41,7 @@
   text-decoration: none;
   color: black;
 }
-.card-container {
+.container {
   background: white;
+  width: 100%;
 }

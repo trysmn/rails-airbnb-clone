@@ -1,5 +1,4 @@
-<div class="main-container">
-  <div class="card-container">
+  <div class="container">
     <div class="row">
       <% @flats.each do |flat| %>
 
@@ -16,17 +15,3 @@
         <% end %>
     </div>
   </div>
-    <div id="map"></div>
-</div>
-
-<!-- Gmaps js: building the map -->
-  <script>
-    function initMap() {
-      // Create a map object and specify the DOM element for display.
-      var map = new google.maps.Map(document.getElementById('map'), {
-        center: {lat: 52.5206, lng: 13.4098},
-        scrollwheel: false,
-        zoom: 8
-      });
-    }
-  </script>
