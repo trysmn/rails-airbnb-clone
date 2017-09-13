@@ -1,0 +1,30 @@
+body {
+  font-weight: 100;
+  font-size: 16px;
+  line-height: 1.4;
+}
+h2 {
+  font-weight: 200;
+  font-size: 25px;
+}
+#header {
+  color: #828282;
+  padding: 30px;
+}
+
+.wrapper-white {
+  background: #FFF;
+  padding-top: 30px;
+  padding-bottom: 30px;
+}
+.wrapper-white .description-card {
+  background: #FFFFFF;
+  padding: 30px;
+  margin: 30px;
+  shape-margin: 10px;
+  width: 500px
+}
+
+.wrapper-white .book-card {
+  width: 300px
+}
