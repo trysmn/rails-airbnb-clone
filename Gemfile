@@ -19,6 +19,11 @@ gem 'uglifier'
 gem 'devise'
 gem 'country_select'
 
+gem 'cloudinary', '1.1.7'
+gem 'attachinary', github: 'assembler/attachinary'
+gem 'jquery-fileupload-rails'
+gem 'coffee-rails'
+
 group :development, :test do
   gem 'pry-byebug'
   gem 'pry-rails'
