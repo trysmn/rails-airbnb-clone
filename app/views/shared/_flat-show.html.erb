@@ -26,19 +26,14 @@
 
           <div class="col-xs-12 col-md-6">
           <div class="book-card">
-            <form action="#">
-              <input type="text" class="form-control input-lg" placeholder="Check In">
-              <input type="text" class="form-control input-lg" placeholder="Check Out">
-              <select name="" id="guest" class="form-control input-lg">
-                <option value="1">1 person</option>
-                <option value="2">2 persons</option>
-                <option value="3">3 persons</option>
-                <option value="4">4 persons</option>
-                <option value="5">5 persons</option>
-                <option value="6">6 persons</option>
-              </select>
-              <input type="submit" class="btn btn-custom btn-fullwidth" value="Book">
-            </form>
+            <%= simple_form_for [@flat, @booking] do |f| %>
+            <%= f.error_notification %>
+
+            <%= f.input :start_date, as: :date, class: "form-control input-lg" %>
+            <%= f.input :end_date, as: :date, class: "form-control input-lg" %>
+            <%= f.input :total_price, as: :integer, class: "form-control input-lg" %>
+            <%= f.submit class: "btn btn-custom btn-fullwidth" %>
+          <% end %>
           </div>
           </div>
         </div>

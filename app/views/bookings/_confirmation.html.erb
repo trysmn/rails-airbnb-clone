@@ -5,7 +5,12 @@
 
 <h5>Moving out date: <%= @booking.end_date %></h5>
 
-<h5>Total charges: £<%= @booking.total_price %></h5>
+<h5>Total charges: €<%= @booking.total_price %></h5>
+<br>
+<%= link_to "Home", root_path, class: "btn btn-primary" %>
+<br>
+<br>
+<br>
 
 <% @flat.pictures.each do |picture| %>
   <%= cl_image_tag picture.path, width: 300, height: 200, crop: :fill %>
