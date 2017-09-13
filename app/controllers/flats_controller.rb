@@ -1,6 +1,7 @@
 class FlatsController < ApplicationController
   skip_before_action :authenticate_user!, only: [:index, :show]
   before_action :set_flat, only: [:show, :edit, :update, :delete]
+  before_action :set_owner, only: [:show]
   def index
     @flats = Flat.all
   end
@@ -43,6 +44,10 @@ class FlatsController < ApplicationController
 
   def set_flat
     @flat = Flat.find(params[:id])
+  end
+
+  def set_owner
+    @owner = Flat.find(params[:id]).user
   end
 
   def flat_params
