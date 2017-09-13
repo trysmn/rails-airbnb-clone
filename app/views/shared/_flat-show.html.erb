@@ -1,0 +1,46 @@
+
+
+<div class="flat-show-banner" style="background: linear-gradient(-225deg, rgba(0,101,168,0.6) 0%, rgba(0,36,61,0.6) 50%), url('http://d28hgpri8am2if.cloudfront.net/book_images/onix/interior_spreads/9781782494119/the-scandinavian-home-9781782494119.in03.jpg');">
+</div>
+
+    <!-- Apply second technique -->
+    <div class="wrapper-white">
+      <div class="container">
+        <div class="row">
+          <div class="col-xs-12 col-md-6">
+            <div class="description-card">
+            <h2><%= @flat.title %></h2>
+              <h3>About this listing</h3>
+              <p>
+                <%= @flat.description %>
+              </p>
+              <ul>
+                <li> <%= @flat.max_guests %> </li>
+                <li> <%= @flat.price %> </li>
+                <li> <%= @flat.city  %> </li>
+                <li> <%= @flat.postal_code %> </li>
+                <li> <%= @flat.country %> </li>
+              </ul>
+          </div>
+          </div>
+
+          <div class="col-xs-12 col-md-6">
+          <div class="book-card">
+            <form action="#">
+              <input type="text" class="form-control input-lg" placeholder="Check In">
+              <input type="text" class="form-control input-lg" placeholder="Check Out">
+              <select name="" id="guest" class="form-control input-lg">
+                <option value="1">1 person</option>
+                <option value="2">2 persons</option>
+                <option value="3">3 persons</option>
+                <option value="4">4 persons</option>
+                <option value="5">5 persons</option>
+                <option value="6">6 persons</option>
+              </select>
+              <input type="submit" class="btn btn-custom btn-fullwidth" value="Book">
+            </form>
+          </div>
+          </div>
+        </div>
+      </div>
+    </div>
