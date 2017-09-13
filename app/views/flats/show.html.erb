@@ -1,4 +1,6 @@
+
 <!-- app/views/flatsshow.html.erb -->
 <% @flat.pictures.each do |picture| %>
   <%= cl_image_tag picture.path, width: 300, height: 200, crop: :fill %>
 <% end %>
+
