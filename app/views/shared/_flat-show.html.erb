@@ -9,8 +9,13 @@
         <div class="row">
           <div class="col-xs-12 col-md-6">
             <div class="description-card">
-            <h2><%= @flat.title %></h2>
-              <h3>About this listing</h3>
+            <h1><%= @flat.title %></h1>
+            <p>Entire place | <%= @owner.email %> |
+            <% 5.times do %>
+              <i class="fa fa-star" aria-hidden="true"></i>
+            <% end %>
+               | 23 reviews</p>
+              <h4>About this listing</h4>
               <p>
                 <%= @flat.description %>
               </p>
