@@ -26,14 +26,14 @@ class FlatsController < ApplicationController
   end
 
   def update
-     if @flat.update(flat_params)
+    if @flat.update(flat_params)
       redirect_to flat_path(@flat)
     else
       render :edit
     end
   end
 
-  def
+  def destroy
     @flat.destroy!
     redirect_to flats_path
   end
