@@ -23,7 +23,7 @@
           <%= f.input :price, placeholder: "Price", input_html: {class: "form-input-lg"} %>
           <%= f.input :max_guests, placeholder: "Max. guests", input_html: {class: "form-input-lg"} %>
           <%= f.input :description, placeholder: "Description", input_html: {class: "form-input-lg"}  %>
-          <%= f.input :pictures, label: "Upload photos" %>
+          <%= f.input :pictures, as: :attachinary, label: "Upload photos" %>
           <%#= f.input :pictures_cache, as: :hidden %>
         </div>
 
