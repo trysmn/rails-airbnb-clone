@@ -5,8 +5,8 @@
 <div class="wrapper-white">
   <div class="container">
     <div class="row">
-    
-      <div class="col-xs-12 col-md-6">
+
+      <div class="col-xs-12 col-md-6 col-md-offset-1">
         <div class="description-card">
           <h1><%= @flat.title %></h1>
           <p>Entire place | <%= @owner.email %> |
@@ -16,20 +16,28 @@
             | 23 reviews
           </p>
           <h4>About this listing</h4>
-          <p>
+          <p class="description-text">
             <%= @flat.description %>
           </p>
-          <ul>
-            <li><strong>Max. guests: </strong> <%= @flat.max_guests %> </li>
-            <li><strong>Price: </strong> <%= @flat.price %> </li>
-            <li><strong>City: </strong> <%= @flat.city  %> </li>
-            <li><strong>Postcode: </strong> <%= @flat.postal_code %> </li>
-            <li><strong>Country: </strong> <%= @flat.country %> </li>
-          </ul>         
+
+          <div class="flat-details">
+            <div>
+              <strong>City: </strong> <%= @flat.city %> <br>
+              <strong>Postcode: </strong> <%= @flat.postal_code %> <br>
+              <strong>Country: </strong> <%= @flat.country %> <br>
+            </div>
+            <div>
+              <strong>Guests: </strong> <%= @flat.max_guests %> <br>
+              <strong>Price: </strong> <%= @flat.price %> <br>
+            </div>
+            <div></div>
+            <div></div>
+          </div>
+
         </div>
       </div>
 
-      <div class="col-xs-12 col-md-6">
+      <div class="col-xs-12 col-md-4">
         <div class="book-card">
           <% if current_user.id == @owner.id %>
             <%= link_to "Your bookings", flat_bookings_path(@flat), class: "btn btn-custom btn-fullwidth" %>
@@ -38,25 +46,28 @@
               <%= f.error_notification %>
               <div class="date-inputs">
                 <div>
-                  <%= f.input :start_date, as: :string, input_html: { class: 'datepicker', value: Date.today } %>
+                  <%= f.input :start_date, as: :string, label: false, input_html: { class: 'datepicker', value: Date.today.strftime('%d/%m/%Y') } %>
                 </div>
                 <div>
-                  <%= f.input :end_date, as: :string, input_html: { class: 'datepicker', value: Date.tomorrow } %>
+                  <%= f.input :end_date, as: :string, label: false, input_html: { class: 'datepicker', value: Date.tomorrow.strftime('%d/%m/%Y') } %>
                 </div>
               </div>
-              <%= f.input :total_price, as: :integer, class: "form-control input-lg" %>
+              <%= f.input :total_price, as: :integer, label: false, placeholder: 'Total price', class: "form-control input-lg" %>
               <%= f.submit class: "btn btn-custom btn-fullwidth" %>
             <% end %>
           <% end %>
         </div>
       </div>
-
     </div>
+
+    <div>
+      <% @flat.pictures.each do |picture| %>
+        <div class="col-xs-12 col-sm-6 col-md-3">
+          <%= cl_image_tag picture.path, width: 300, height: 200, crop: :fill %>
+        </div>
+      <% end %>
+    </div>
+
   </div>
 </div>
-
-<% @flat.pictures.each do |picture| %>
-<%= cl_image_tag picture.path, width: 300, height: 200, crop: :fill %>
-<% end %>
-
 

@@ -22,14 +22,14 @@ h2 {
   padding-top: 10px;
   // margin: 30px;
   // shape-margin: 10px;
-  width: 500px
+
 }
 .wrapper-white .book-card {
   padding-top: 33px;
-  width: 500px
+
 }
 .input-lg {
-  width: 500px
+
 }
 .btn-custom {
   padding: 13px 0;
@@ -47,4 +47,13 @@ h2 {
 .date-inputs {
   display: flex;
   justify-content: space-between;
+}
+
+.flat-details {
+  display: flex;
+  justify-content: space-between;
+}
+
+.description-text {
+  margin: 20px 0px;
 }
