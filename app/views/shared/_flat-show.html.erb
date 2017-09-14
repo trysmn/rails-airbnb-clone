@@ -39,7 +39,7 @@
 
       <div class="col-xs-12 col-md-4">
         <div class="book-card">
-          <% if current_user != nil and current_user.id == @owner.id %>
+          <% if current_user != nil && current_user.id == @owner.id %>
             <%= link_to "Your bookings", flat_bookings_path(@flat), class: "btn btn-custom btn-fullwidth" %>
           <% else %>
             <%= simple_form_for [@flat, @booking] do |f| %>
