@@ -18,6 +18,7 @@ gem 'uglifier'
 
 gem 'devise'
 gem 'country_select'
+gem 'omniauth-facebook'
 
 gem 'cloudinary', '1.1.7'
 gem 'attachinary', github: 'assembler/attachinary'
