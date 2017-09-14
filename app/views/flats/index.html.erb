@@ -26,11 +26,14 @@
     <%= simple_form_for :search, url: "/flats/search" , method: :get do |f| %>
         <div class="form-inputs">
 
-          <%= f.input :query, label: false, placeholder: "Destination", input_html: {class: "form-control input-lg"} %>
+          <%= f.input :city, label: false, placeholder: "Destination", input_html: {class: "form-control input-lg"} %>
+          <%= f.input :check_in, label: false, placeholder: "Check In", input_html: {class: "form-control input-lg"} %>
+          <%= f.input :check_out, label: false, placeholder: "Check Out", input_html: {class: "form-control input-lg"} %>
+          <%= f.input :guests, label: false, default: 1, collection: [['1 Person', 1], ['2 Persons', 2], ['3 Persons', 3], ['4 Persons', 4], ['5 Persons', 5], ['6 Persons', 6]], input_html: {class: "form-control input-lg"} %>
         </div>
 
         <div class="form-actions">
-          <%= f.submit "Search", class: "btn btn-custom btn-fullwidth"  %>
+          <%= f.submit "Search", class: "btn btn-lg"  %>
         </div>
       <% end %>
   </div>

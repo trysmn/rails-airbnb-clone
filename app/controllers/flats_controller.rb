@@ -8,7 +8,7 @@ class FlatsController < ApplicationController
 
   def search
     # @flats = Flat.where("search_params LIKE city")
-    @flats = Flat.where(["city LIKE ?", "%#{params['search']['query']}%"])
+    @flats = Flat.where("lower(city) LIKE '%' || :city || '%' AND max_guests >= :guests", {city: params['search']['city'].downcase, guests: params['search']['guests']})
   end
 
   def new
