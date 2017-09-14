@@ -2,7 +2,7 @@
   <div class="banner-content">
     <h1>WELCOME HOME</h1>
     <p>Rent unique places to stay from local hosts in 190+ countries.</p>
-    <form action="#" class="form-inline">
+    <form action="/flats" class="form-inline">
       <input type="text" class="form-control input-lg" placeholder="Destination">
       <input type="text" class="form-control input-lg" placeholder="Check In">
       <input type="text" class="form-control input-lg" placeholder="Check Out">
@@ -16,6 +16,26 @@
       </select>
       <input type="submit" class="btn btn-lg" value="Search">
     </form>
+  </div>
+</div>
+
+<div class="banner" style="background: linear-gradient(-225deg, rgba(0,101,168,0.6) 0%, rgba(0,36,61,0.6) 50%), url('http://d28hgpri8am2if.cloudfront.net/book_images/onix/interior_spreads/9781782494119/the-scandinavian-home-9781782494119.in03.jpg');">
+  <div class="banner-content">
+    <h1>WELCOME HOME</h1>
+    <p>Rent unique places to stay from local hosts in 190+ countries.</p>
+    <%= simple_form_for :search, url: "/flats/search" , method: :get do |f| %>
+        <div class="form-inputs">
+
+          <%= f.input :city, label: false, placeholder: "Destination", input_html: {class: "form-control input-lg"} %>
+          <%= f.input :check_in, label: false, placeholder: "Check In", input_html: {class: "form-control input-lg"} %>
+          <%= f.input :check_out, label: false, placeholder: "Check Out", input_html: {class: "form-control input-lg"} %>
+          <%= f.input :guests, label: false, default: 1, collection: [['1 Person', 1], ['2 Persons', 2], ['3 Persons', 3], ['4 Persons', 4], ['5 Persons', 5], ['6 Persons', 6]], input_html: {class: "form-control input-lg"} %>
+        </div>
+
+        <div class="form-actions">
+          <%= f.submit "Search", class: "btn btn-lg"  %>
+        </div>
+      <% end %>
   </div>
 </div>
 

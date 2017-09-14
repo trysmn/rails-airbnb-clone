@@ -13,6 +13,11 @@ class FlatsController < ApplicationController
     end
   end
 
+  def search
+    # @flats = Flat.where("search_params LIKE city")
+    @flats = Flat.where("lower(city) LIKE '%' || :city || '%' AND max_guests >= :guests", {city: params['search']['city'].downcase, guests: params['search']['guests']})
+  end
+
   def new
     @flat = Flat.new
   end
@@ -62,4 +67,8 @@ class FlatsController < ApplicationController
   def flat_params
     params.require(:flat).permit(:title, :address_line, :postal_code, :city, :country, :max_guests, :price, :description, pictures: [])
   end
+
+  # def search_params
+  #   params['search']['query']
+  # end
 end
