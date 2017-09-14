@@ -6,6 +6,9 @@ Rails.application.routes.draw do
     resources :bookings
     resources :reviews, only: [:new, :create]
     resources :perk_quantities, only: [:new, :create, :destroy]
+    collection do
+      get 'search'
+    end
   end
 
   resources :users, only: [] do
