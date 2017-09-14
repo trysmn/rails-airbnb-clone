@@ -34,7 +34,7 @@ class FlatsController < ApplicationController
 
   def show
     @booking = Booking.new
-    @alert_message = "You are viewing #{@flat.title}"
+    # @alert_message = "You are viewing #{@flat.title}"
     @flat_coordinates = { lat: @flat.latitude, lng: @flat.longitude }
   end
 
