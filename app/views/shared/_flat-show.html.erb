@@ -39,7 +39,7 @@
 
       <div class="col-xs-12 col-md-4">
         <div class="book-card">
-          <% if current_user.id == @owner.id %>
+          <% if current_user != nil && current_user.id == @owner.id %>
             <%= link_to "Your bookings", flat_bookings_path(@flat), class: "btn btn-custom btn-fullwidth" %>
           <% else %>
             <%= simple_form_for [@flat, @booking] do |f| %>
@@ -52,7 +52,6 @@
                   <%= f.input :end_date, as: :string, label: false, input_html: { class: 'datepicker', value: Date.tomorrow.strftime('%d/%m/%Y') } %>
                 </div>
               </div>
-              <%= f.input :total_price, as: :integer, label: false, placeholder: 'Total price', class: "form-control input-lg" %>
               <%= f.submit class: "btn btn-custom btn-fullwidth" %>
             <% end %>
           <% end %>
