@@ -22,7 +22,7 @@
               <ul>
                 <li><strong>Max. guests: </strong> <%= @flat.max_guests %> </li>
                 <li><strong>Price: </strong> <%= @flat.price %> </li>
-                <li><strong>City: </strong> <%= @flat.city  %> </li>
+                <li><strong>City: </strong> <%= @flat.city %> </li>
                 <li><strong>Postcode: </strong> <%= @flat.postal_code %> </li>
                 <li><strong>Country: </strong> <%= @flat.country %> </li>
               </ul>
@@ -34,12 +34,12 @@
             <% if current_user.id == @owner.id %>
               <%= link_to "Your bookings", flat_bookings_path(@flat), class: "btn btn-custom btn-fullwidth" %>
             <% else %>
+              <h2>Total price <%= @flat.price %> - Here we need Javascript!</h2>
               <%= simple_form_for [@flat, @booking] do |f| %>
               <%= f.error_notification %>
 
               <%= f.input :start_date, as: :date, class: "form-control input-lg" %>
               <%= f.input :end_date, as: :date, class: "form-control input-lg" %>
-              <%= f.input :total_price, as: :integer, class: "form-control input-lg" %>
               <%= f.submit class: "btn btn-custom btn-fullwidth" %>
             <% end %>
           <% end %>

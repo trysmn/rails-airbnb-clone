@@ -14,6 +14,7 @@ class BookingsController < ApplicationController
     @booking = Booking.new(booking_params)
     @booking.flat = @flat
     @booking.user = current_user
+    @booking.total_price = days_between_booking * @flat.price
     if @booking.save
       redirect_to flat_booking_path(@flat, @booking)
     else
@@ -51,6 +52,12 @@ class BookingsController < ApplicationController
   end
 
   def booking_params
-    params.require(:booking).permit(:start_date, :end_date, :total_price)
+    params.require(:booking).permit(:start_date, :end_date)
+  end
+
+  def days_between_booking
+    s_date = Date.new( booking_params['start_date(1i)'].to_i, booking_params['start_date(2i)'].to_i, booking_params['start_date(3i)'].to_i )
+    e_date = Date.new( booking_params['end_date(1i)'].to_i, booking_params['end_date(2i)'].to_i, booking_params['end_date(3i)'].to_i )
+    e_date - s_date
   end
 end
