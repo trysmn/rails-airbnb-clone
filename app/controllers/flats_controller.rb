@@ -3,8 +3,7 @@ class FlatsController < ApplicationController
   before_action :set_flat, only: [:show, :edit, :update, :delete]
   before_action :set_owner, only: [:show]
   def index
-    # @flats = Flat.all
-    @flats = Flat.where.not(latitude: nil, longitude: nil)
+    @flats = Flat.all
 
     @hash = Gmaps4rails.build_markers(@flats) do |flat, marker|
       marker.lat flat.latitude
@@ -15,6 +14,7 @@ class FlatsController < ApplicationController
 
   def search
     # @flats = Flat.where("search_params LIKE city")
+    # @flats = Flat.where.not(latitude: nil, longitude: nil)
     @flats = Flat.where("lower(city) LIKE '%' || :city || '%' AND max_guests >= :guests", {city: params['search']['city'].downcase, guests: params['search']['guests']})
   end
 

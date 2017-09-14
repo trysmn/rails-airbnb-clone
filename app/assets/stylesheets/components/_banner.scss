@@ -19,7 +19,7 @@
   margin-bottom: 50px;
 }
 
-.input-lg {
+.form-control .input-lg {
   border-radius: 1px;
   width: 20px;
   font-size: 18px;
@@ -31,8 +31,12 @@
   padding: 10px 30px;
   opacity: 1;
 }
-
 .btn-lg:hover {
   color: white;
   opacity: 0.8;
 }
+// .form-inputs {
+//   border-radius: 1px;
+//   width: 20px;
+//   font-size: 18px;
+// }
