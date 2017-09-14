@@ -6,4 +6,7 @@ class Flat < ApplicationRecord
 
   has_attachments :pictures, maximum: 10
 
+  geocoded_by :address_line
+  after_validation :geocode, if: :address_line_changed?
+
 end
