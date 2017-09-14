@@ -56,8 +56,6 @@ class BookingsController < ApplicationController
   end
 
   def days_between_booking
-    s_date = Date.new( booking_params['start_date(1i)'].to_i, booking_params['start_date(2i)'].to_i, booking_params['start_date(3i)'].to_i )
-    e_date = Date.new( booking_params['end_date(1i)'].to_i, booking_params['end_date(2i)'].to_i, booking_params['end_date(3i)'].to_i )
-    e_date - s_date
+    params[:booking][:end_date].to_date - params[:booking][:start_date].to_date
   end
 end
