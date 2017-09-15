@@ -15,6 +15,7 @@ class ProfilesController < ApplicationController
   end
 
   def show
+    @bookings = Booking.where("user_id = :c_user", {c_user: current_user.id})
   end
 
   def edit
