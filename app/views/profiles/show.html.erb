@@ -1,18 +1,18 @@
 <div class="container">
 <div class="row">
-  <%= cl_image_tag @profile.profile_pic.path %>
-  <h2><%= @profile.first_name %> <%= @profile.last_name %></h2>
+  <h1><%= @profile.first_name %> <%= @profile.last_name %></h1>
+  <%= cl_image_tag @profile.profile_pic.path, height: 150, width: 150 %>
   <hr>
 </div>
 
   <div class="row">
-    <h1>YOUR TRAVELS</h1>
+    <h2>FUTURE TRIPS</h2>
     <% @bookings.each do |booking| %>
       <div class="product">
         <% booking_flat = Flat.find(booking.flat_id) %>
         <div class='product-upvote'>
-          <div class="product-count"><h4><%= booking.start_date %></h4></div>
-          <div class='product-count'><h4><%= booking.end_date %></h4></div>
+          <div class="product-count"><h5><%= booking.start_date %></h5></div>
+          <div class='product-count'><h5><%= booking.end_date %></h5></div>
         </div>
         <div class="product">
           <h2> € <%= booking.total_price %> </h2>
@@ -25,7 +25,7 @@
             <%= booking_flat.max_guests %> guests </p>
         </div>
         <%= cl_image_tag booking_flat.pictures[0].path, class: "product-image" %>
-        <%= cl_image_tag booking_flat.pictures[1].path, class: "product-image hidden-xs" %>
+        <%#= cl_image_tag booking_flat.pictures[1].path, class: "product-image hidden-xs" %>
       </div>
     <% end %>
   </div>
