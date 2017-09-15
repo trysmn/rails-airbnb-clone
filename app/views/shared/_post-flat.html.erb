@@ -1,41 +1,42 @@
-<div class="container">
-  <div class="row">
-    <div class="col-xs-12 col-md-6 col-md-offset-3">
-     <h2 class="text-center">Post your flat</h2>
+<div class="white-container">
+  <div class="new-card">
+    <div class="row">
+      <div class="col-xs-12 col-md-6 col-md-offset-3">
+       <h2 class="text-center"><strong>Post your flat</strong></h2>
 
-      <%= simple_form_for(@flat) do |f| %>
-        <% if @flat.errors.any? %>
-          <div id="error_explanation">
-            <ul>
-            <% @flat.errors.full_messages.each do |message| %>
-              <li><%= message %></li>
-            <% end %>
-            </ul>
+        <%= simple_form_for(@flat) do |f| %>
+          <% if @flat.errors.any? %>
+            <div id="error_explanation">
+              <ul>
+              <% @flat.errors.full_messages.each do |message| %>
+                <li><%= message %></li>
+              <% end %>
+              </ul>
+            </div>
+          <% end %>
+
+
+          <div class="form-inputs">
+
+            <%= f.input :title, label: false, placeholder: "Title", input_html: {class: "form-input-lg"} %>
+            <%= f.input :address_line, label: false, placeholder: "Address", input_html: {class: "form-input-lg"} %>
+            <%= f.input :postal_code, label: false, placeholder: "Postcode", input_html: {class: "form-input-lg"} %>
+            <%= f.input :city, label: false, placeholder: "City", input_html: {class: "form-input-lg"} %>
+            <%= f.input :country, label: false, prompt: "Country", input_html: {class: "form-input-lg"} %>
+            <%= f.input :price, label: false, placeholder: "Price", input_html: {class: "form-input-lg"} %>
+            <%= f.input :max_guests, label: false, placeholder: "Max. guests", input_html: {class: "form-input-lg"} %>
+            <%= f.input :description, label: false, placeholder: "Description", input_html: {class: "form-input-lg"}  %>
+            <%= f.input :pictures, as: :attachinary, label: "Upload photos" %>
+
+            <%#= f.input :pictures_cache, as: :hidden %>
+          </div>
+
+          <div class="form-actions">
+            <%= f.button :submit, class: "btn btn-custom btn-fullwidth"  %>
           </div>
         <% end %>
-
-
-        <div class="form-inputs">
-
-          <%= f.input :title, label: false, placeholder: "Title", input_html: {class: "form-input-lg"} %>
-          <%= f.input :address_line, label: false, placeholder: "Address", input_html: {class: "form-input-lg"} %>
-          <%= f.input :postal_code, label: false, placeholder: "Postcode", input_html: {class: "form-input-lg"} %>
-          <%= f.input :city, label: false, placeholder: "City", input_html: {class: "form-input-lg"} %>
-          <%= f.input :country, label: false, prompt: "Country", input_html: {class: "form-input-lg"} %>
-          <%= f.input :price, label: false, placeholder: "Price", input_html: {class: "form-input-lg"} %>
-          <%= f.input :max_guests, label: false, placeholder: "Max. guests", input_html: {class: "form-input-lg"} %>
-          <%= f.input :description, label: false, placeholder: "Description", input_html: {class: "form-input-lg"}  %>
-          <%= f.input :pictures, as: :attachinary, label: "Upload photos" %>
-
-          <%#= f.input :pictures_cache, as: :hidden %>
-        </div>
-
-        <div class="form-actions">
-          <%= f.button :submit, class: "btn btn-custom btn-fullwidth"  %>
-        </div>
-      <% end %>
-     </div>
-  </div>
+       </div>
+      </div>
+    </div>
 </div>
-
 
