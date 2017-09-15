@@ -1,0 +1,27 @@
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12 col-md-6 col-md-offset-3">
+      <h2 class="text-center">Create your profile</h2>
+      <%= simple_form_for(profile) do |f| %>
+        <div class="form-inputs">
+          <% if profile.errors.any? %>
+            <div id="error_explanation">
+              <ul>
+                <% profile.errors.full_messages.each do |message| %>
+                  <li><%= message %></li>
+                <% end %>
+              </ul>
+            </div>
+          <% end %>
+
+          <%= f.input :first_name, as: :string, label: false, placeholder: "First Name", input_html: {class: "form-input-lg"} %>
+          <%= f.input :last_name, as: :string, label: false, placeholder: "Last Name", input_html: {class: "form-input-lg"} %>
+          <%= f.input :profile_pic, as: :attachinary, label: "Upload profile picture" %>
+        </div>
+        <div class="form-actions">
+          <%= f.button :submit, class: "btn btn-custom btn-fullwidth" %>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>

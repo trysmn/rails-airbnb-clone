@@ -15,12 +15,22 @@
       <!-- Avatar with dropdown menu -->
       <div class="navbar-wagon-item">
         <div class="dropdown">
+          <% profile_user = Profile.where("user_id = :c_user", {c_user: current_user.id}) %>
           <% avatar_url = current_user.facebook_picture_url || "http://placehold.it/30x30" %>
+          <% if profile_user[0] %>
+            <% avatar_url = ( cl_image_path profile_user[0].profile_pic.path ) %>
+          <% end %>
           <%= image_tag avatar_url, class: "avatar dropdown-toggle", id: "navbar-wagon-menu", "data-toggle" => "dropdown" %>
           <ul class="dropdown-menu dropdown-menu-right navbar-wagon-dropdown-menu">
             <li>
-              <%= link_to "#" do %>
-                <i class="fa fa-user"></i> <%= t(".profile", default: "Profile") %>
+              <% if profile_user[0] %>
+                <%= link_to profile_path(profile_user[0].id) do %>
+                  <i class="fa fa-user"></i> <%= t(".profile", default: "Profile") %>
+                <% end %>
+              <% else %>
+                <%= link_to new_profile_path(@profile) do %>
+                  <i class="fa fa-user"></i> <%= t(".profile", default: "Profile") %>
+                <% end %>
               <% end %>
             </li>
             <li>
