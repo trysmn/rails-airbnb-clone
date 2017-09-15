@@ -25,10 +25,31 @@
             <%= booking_flat.max_guests %> guests </p>
         </div>
         <%= cl_image_tag booking_flat.pictures[0].path, class: "product-image" %>
-        <%= cl_image_tag booking_flat.pictures[1].path, class: "product-image hidden-xs" %>
+        <%= cl_image_tag booking_flat.pictures[1].path, class: "product-image hidden-sm" %>
       </div>
     <% end %>
   </div>
+  <div id="map" style="width: 100%; height: 600px;"></div>
 </div>
+
+<!-- app/views/flats/index.html.erb -->
+
+  <% content_for(:after_js) do %>
+    <%= javascript_tag do %>
+      $(document).ready(function() {
+        var handler = Gmaps.build('Google');
+        handler.buildMap({ internal: { id: 'map' } }, function() {
+          markers = handler.addMarkers(<%= raw @hash.to_json %>);
+          handler.bounds.extendWith(markers);
+          handler.fitMapToBounds();
+          if (markers.length == 0) {
+            handler.getMap().setZoom(2);
+          } else if (markers.length == 1) {
+            handler.getMap().setZoom(14);
+          }
+        });
+      });
+    <% end %>
+  <% end %>
 
 
