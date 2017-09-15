@@ -1,8 +1,6 @@
 <div class="navbar-wagon">
   <!-- Logo -->
-  <%= link_to root_path, class: "navbar-wagon-brand" do %>
-    <%= image_tag "airbnb1.png" %>
-  <% end %>
+
 
   <%= simple_form_for :search, html: {class: 'form-inline'}, url: "/flats/search" , method: :get do |f| %>
     <%= f.input :city, label: false, placeholder: "Destination", input_html: {class: "form-control"} %>
