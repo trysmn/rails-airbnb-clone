@@ -19,11 +19,11 @@
   <br><br>
 
   <div class="row">
-        <% @flat.pictures.each do |picture| %>
-    <div class="col-xs-12 col-sm-6 col-md-3">
-          <%= cl_image_tag picture.path, width: 300, height: 200, crop: :fill %>
-    </div>
-        <% end %>
+    <% @flat.pictures.each do |picture| %>
+      <div class="col-xs-12 col-sm-6 col-md-3">
+        <%= cl_image_tag picture.path, width: 300, height: 200, crop: :fill %>
+      </div>
+    <% end %>
   </div>
 </div>
 

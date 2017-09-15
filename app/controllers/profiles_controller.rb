@@ -15,7 +15,18 @@ class ProfilesController < ApplicationController
   end
 
   def show
-    @bookings = Booking.where("user_id = :c_user", {c_user: current_user.id})
+    @bookings = Booking.where("user_id = :c_user AND start_date >= :today", {c_user: current_user.id, today: Date.today }).order(:start_date)
+
+    flats = []
+    @bookings.each do |booking|
+      flats << Flat.find(booking.flat_id)
+    end
+
+    @hash = Gmaps4rails.build_markers(flats) do |flat, marker|
+      marker.lat flat.latitude
+      marker.lng flat.longitude
+      # marker.infowindow render_to_string(partial: "/flats/map_box", locals: { flat: flat })
+    end
   end
 
   def edit
