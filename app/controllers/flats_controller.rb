@@ -5,17 +5,23 @@ class FlatsController < ApplicationController
   def index
     @flats = Flat.all
 
-    @hash = Gmaps4rails.build_markers(@flats) do |flat, marker|
-      marker.lat flat.latitude
-      marker.lng flat.longitude
+    # @hash = Gmaps4rails.build_markers(@flats) do |flat, marker|
+    #   marker.lat flat.latitude
+    #   marker.lng flat.longitude
       # marker.infowindow render_to_string(partial: "/flats/map_box", locals: { flat: flat })
-    end
+    # end
   end
 
   def search
     # @flats = Flat.where("search_params LIKE city")
     # @flats = Flat.where.not(latitude: nil, longitude: nil)
     @flats = Flat.where("lower(city) LIKE '%' || :city || '%' AND max_guests >= :guests", {city: params['search']['city'].downcase, guests: params['search']['guests']})
+
+    @hash = Gmaps4rails.build_markers(@flats) do |flat, marker|
+    marker.lat flat.latitude
+    marker.lng flat.longitude
+    # marker.infowindow render_to_string(partial: "/flats/map_box", locals: { flat: flat })
+    end
   end
 
   def new
