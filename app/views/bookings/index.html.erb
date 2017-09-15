@@ -1,16 +1,20 @@
-<h4>Booking details for <%= @flat.title %>: </h4>
 
-<hr>
+<div class="bookings-container" style="background: linear-gradient(-225deg, rgba(0,101,168,0.6) 0%, rgba(0,36,61,0.6) 50%), url('http://www.homeartinterior.com/uploads/decorating_living_room_zon25axkrh_709142034.jpg');">
+<br>
+    <h2 class="text-center">Booking details for <%= @flat.title %> </h2>
+    <div class>
+      <% @bookings.each do |booking| %>
+      <div class="bookings">
+        <h5 id="booking-no">Booking no: <%= booking.id %></h5>
+        <h5>Moving in date: <%= booking.start_date %></h5>
+        <h5>Moving out date: <%= booking.end_date %></h5>
+        <h5>Total charges: €<%= booking.total_price %></h5>
+      </div>
+      <% end %>
+    </div>
+</div>
 
-<% @bookings.each do |booking| %>
 
-  <h5>Booking no: <%= booking.id %></h5>
 
-  <h5>Moving in date: <%= booking.start_date %></h5>
 
-  <h5>Moving out date: <%= booking.end_date %></h5>
 
-  <h5>Total charges: €<%= booking.total_price %></h5>
-
-  <hr>
-<% end %>
