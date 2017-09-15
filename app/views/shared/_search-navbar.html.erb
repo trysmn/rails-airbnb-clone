@@ -1,0 +1,64 @@
+<div class="navbar-wagon">
+  <!-- Logo -->
+  <%= link_to root_path, class: "navbar-wagon-brand" do %>
+    <%= image_tag "airbnb1.png" %>
+  <% end %>
+
+  <%= simple_form_for :search, html: {class: 'form-inline'}, url: "/flats/search" , method: :get do |f| %>
+    <%= f.input :city, label: false, placeholder: "Destination", input_html: {class: "form-control"} %>
+    <%= f.input :check_in, label: false, placeholder: "Check In", input_html: {class: 'datepicker', value: Date.today.strftime('%d/%m/%Y')} %>
+    <%= f.input :check_out, label: false, placeholder: "Check Out", input_html: {class: 'datepicker', value: Date.tomorrow.strftime('%d/%m/%Y')} %>
+    <%= f.input :guests, label: false, default: 1, collection: [['1 Person', 1], ['2 Persons', 2], ['3 Persons', 3], ['4 Persons', 4], ['5 Persons', 5], ['6 Persons', 6]], input_html: {class: "form-control"} %>
+    <%= f.submit "Search", class: "btn nav-btn" %>
+  <% end %>
+
+  <!-- Right Navigation -->
+  <div class="navbar-wagon-right hidden-xs hidden-sm">
+
+    <% if user_signed_in? %>
+
+      <!-- Links when logged in -->
+      <%= link_to "Become a host", new_flat_path, class: "navbar-wagon-item navbar-wagon-link" %>
+
+      <!-- Avatar with dropdown menu -->
+      <div class="navbar-wagon-item">
+        <div class="dropdown">
+          <% avatar_url = current_user.facebook_picture_url || "http://placehold.it/30x30" %>
+          <%= image_tag avatar_url, class: "avatar dropdown-toggle", id: "navbar-wagon-menu", "data-toggle" => "dropdown" %>
+          <ul class="dropdown-menu dropdown-menu-right navbar-wagon-dropdown-menu">
+            <li>
+              <%= link_to "#" do %>
+                <i class="fa fa-user"></i> <%= t(".profile", default: "Profile") %>
+              <% end %>
+            </li>
+            <li>
+              <%= link_to root_path do %>
+                <i class="fa fa-home"></i>  <%= t(".profile", default: "Home") %>
+              <% end %>
+            </li>
+            <li>
+              <%= link_to destroy_user_session_path, method: :delete do %>
+                <i class="fa fa-sign-out"></i>  <%= t(".sign_out", default: "Log out") %>
+              <% end %>
+            </li>
+          </ul>
+        </div>
+      </div>
+    <% else %>
+      <!-- Login link (when logged out) -->
+      <%= link_to t(".sign_in", default: "Login"), new_user_session_path, class: "navbar-wagon-item navbar-wagon-link" %>
+    <% end %>
+  </div>
+
+  <!-- Dropdown list appearing on mobile only -->
+  <div class="navbar-wagon-item hidden-md hidden-lg">
+    <div class="dropdown">
+      <i class="fa fa-bars dropdown-toggle" data-toggle="dropdown"></i>
+      <ul class="dropdown-menu dropdown-menu-right navbar-wagon-dropdown-menu">
+        <li><a href="#">Some mobile link</a></li>
+        <li><a href="#">Other one</a></li>
+        <li><a href="#">Other one</a></li>
+      </ul>
+    </div>
+  </div>
+</div>
