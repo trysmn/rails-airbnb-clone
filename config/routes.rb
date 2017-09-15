@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+
   devise_for :users,
     controllers: { omniauth_callbacks: 'users/omniauth_callbacks' }
 
@@ -13,9 +14,9 @@ Rails.application.routes.draw do
     end
   end
 
-  resources :users, only: [] do
-    resources :profiles, only: [:new, :create, :edit, :update]
-  end
+
+  resources :profiles, only: [:new, :create, :show, :edit, :update]
+
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 
   mount Attachinary::Engine => "/attachinary"
