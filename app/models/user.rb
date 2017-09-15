@@ -9,6 +9,7 @@ class User < ApplicationRecord
   has_one :profile
   validates :email, uniqueness: true, presence: true
   validates :password, presence: true
+  after_create :send_confirmation_email
 
   def self.find_for_facebook_oauth(auth)
     user_params = auth.slice(:provider, :uid)
@@ -29,5 +30,10 @@ class User < ApplicationRecord
     end
 
     return user
+  end
+
+  private
+  def send_confirmation_email
+    UserMailer.confirmation(self).deliver_now
   end
 end
