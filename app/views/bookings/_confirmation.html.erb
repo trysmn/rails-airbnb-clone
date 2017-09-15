@@ -1,17 +1,32 @@
 <h3 class="alert alert-info">Booking Confirmed! We look forward to welcoming you here.</h3>
-<h4>Booking details:</h4>
 
-<h5>Moving in date: <%= @booking.start_date %></h5>
+<div class="flat-confirm-banner" style="background: /*linear-gradient(-225deg, rgba(0,101,168,0.6) 0%, rgba(0,36,61,0.6) 50%),*/ url(<%= cl_image_path @flat.pictures[0].path if @flat.pictures.any? %>);">
+</div>
 
-<h5>Moving out date: <%= @booking.end_date %></h5>
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12 col-sm-4 col-sm-offset-4">
+      <br>
+      <h4>Booking details:</h4>
+      <h5>Moving in date: <%= @booking.start_date %></h5>
+      <h5>Moving out date: <%= @booking.end_date %></h5>
+      <h5>Total charges: €<%= @booking.total_price %></h5>
+      <br>
+      <%= link_to "Home", root_path, class: "btn btn-custom btn-fullwidth" %>
+    </div>
+  </div>
 
-<h5>Total charges: €<%= @booking.total_price %></h5>
-<br>
-<%= link_to "Home", root_path, class: "btn btn-primary" %>
-<br>
-<br>
-<br>
+  <br><br>
 
-<% @flat.pictures.each do |picture| %>
-  <%= cl_image_tag picture.path, width: 300, height: 200, crop: :fill %>
-<% end %>
+  <div class="row">
+        <% @flat.pictures.each do |picture| %>
+    <div class="col-xs-12 col-sm-6 col-md-3">
+          <%= cl_image_tag picture.path, width: 300, height: 200, crop: :fill %>
+    </div>
+        <% end %>
+  </div>
+</div>
+
+
+
+
